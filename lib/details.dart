@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
+  final dynamic recipeName;
+  const DetailsPage({Key? key, required this.recipeName}) : super(key: key);
+
+  void _displayRecipe() {
+    
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Recipe Details')),
       body: Center(
-        /*child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: const Text('Hello!'),
-        ),*/
-        child: Text('hi'),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "\n$recipeName\n",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              )
+            ),
+          ],
+        ),
       ),
     );
   }

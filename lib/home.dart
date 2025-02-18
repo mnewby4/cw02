@@ -30,9 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
-  }*/
-
-  
+  }*/ 
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               "\nYour Recipes:\n",
@@ -52,33 +49,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontWeight: FontWeight.bold,
               )
             ),
-            /*GestureDetector(
-              onTap: (){},
-              child: Text('Banana Bread')
-            ),*/
-            /*GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DetailsPage()),
-                );
-              },*/
-              //child: 
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const DetailsPage()),
-                );
-                }, child: Text('Hi'),
-              ),
-                Expanded(
+            Expanded(
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: _recipeList.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(_recipeList[index]),
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => DetailsPage(
+                            recipeName: _recipeList[index],
+                          )),
+                        );
+                      },
+                      child: ListTile(
+                        title: Text(_recipeList[index]),
+                      ),
                     );
                   },
                 ),
