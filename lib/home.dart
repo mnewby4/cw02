@@ -22,15 +22,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<String> _recipeList = [
+  List<String> _recipeList = [
     "Banana Bread", 
     "Pesto Pasta", 
     "Grilled Cheese"];
-  /*void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }*/ 
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
+                        //push=adds route to stack of routes managed by navigator
                         Navigator.push(context,
                           MaterialPageRoute(builder: (context) => DetailsPage(
                             recipeName: _recipeList[index],
@@ -69,7 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
               ),
-            //),
           ],
         ),
       ),
